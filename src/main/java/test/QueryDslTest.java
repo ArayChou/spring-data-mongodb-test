@@ -11,14 +11,19 @@ import java.util.ArrayList;
 public class QueryDslTest {
     @Autowired
     private MongoTemplate mongoTemplate;
-    @Autowired
-    private KidRepository repository;
+
     private String fatherId;
     private String motherId;
 
+    @Autowired
+    private KidRepository repository;
 
     public void test() {
+
+        // @DBRef annotated field works
         repository.findAll(QKid.kid.father.id.eq(this.fatherId)).forEach(System.out::println);
+
+        //TODO To query @DocumentReference annotated field Kid.mother won't work
         repository.findAll(QKid.kid.mother.id.eq(this.motherId)).forEach(System.out::println);
     }
 
