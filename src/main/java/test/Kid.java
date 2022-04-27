@@ -46,4 +46,12 @@ public class Kid {
     public void setFather(Father father) {
         this.father = father;
     }
+
+    @Override
+    public String toString() {
+        return "Kid{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }
